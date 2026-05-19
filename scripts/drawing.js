@@ -1,11 +1,11 @@
 const PAINTINGS_URLS = [
-  { Url: 'A-german-flare-goes-up.png', Title: 'A german flare goes up', Painter: 'Alex'},
-  { Url: 'Anti-airgun-near-nijmegen-bridge.png', Title: 'Anti airgun near nijmegen bridge', Painter: 'Alex'},
-  { Url: 'Landing-craft-assault.png', Title: 'Landing craft assault off Southern France', Painter: 'Alex'},
-  { Url: 'The-nijmegen-bridge.png', Title: 'The Nijmegen bridge, Holland', Painter: 'Alex'},
-  { Url: 'Armoured-cars-in-Nijmegen.png', Title: 'Armoured cars in Nijmegen', Painter: 'Alex'},
-  { Url: 'Infantry-near-nijmegen-holland.png', Title: 'Infantry, near Nijmegen, Holland', Painter: 'Alex'},
-  { Url: 'Canteen.png', Title: 'Canteen, Nijmegen, Hollland', Painter: 'Molly'},
+  { Url: 'paintings/A-german-flare-goes-up.png', Title: 'A german flare goes up', Painter: 'Alex'},
+  { Url: 'paintings/Anti-airgun-near-nijmegen-bridge.png', Title: 'Anti airgun near nijmegen bridge', Painter: 'Alex'},
+  { Url: 'paintings/Landing-craft-assault.png', Title: 'Landing craft assault off Southern France', Painter: 'Alex'},
+  { Url: 'paintings/The-nijmegen-bridge.png', Title: 'The Nijmegen bridge, Holland', Painter: 'Alex'},
+  { Url: 'paintings/Armoured-cars-in-Nijmegen.png', Title: 'Armoured cars in Nijmegen', Painter: 'Alex'},
+  { Url: 'paintings/Infantry-near-nijmegen-holland.png', Title: 'Infantry, near Nijmegen, Holland', Painter: 'Alex'},
+  { Url: 'paintings/Canteen.png', Title: 'Canteen, Nijmegen, Hollland', Painter: 'Molly'},
 ];
 
 const BRUSH_SIZES = [

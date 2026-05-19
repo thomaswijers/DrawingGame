@@ -4,11 +4,6 @@
   display: none;
 }
 
-body {
-  background-color: #bbd2e6;
-  color: #ffffff;
-}
-
 figure {
   max-width: 100%;
   display: -webkit-box;
@@ -27,19 +22,11 @@ figure img {
   -o-object-fit: contain;
      object-fit: contain;
   padding: 15px;
-  background-color: #ffffff;
+  background-color: #ededed;
 }
 figure img.painting {
   background: none;
   padding: 0;
-}
-
-.btn {
-  border-radius: 0;
-}
-
-.container {
-  height: 100vh;
 }
 
 .content-container {
@@ -145,7 +132,7 @@ figure img.painting {
   height: 50px;
   width: 50px;
   padding: 0;
-  background-color: #ffffff;
+  background-color: #ededed;
   border: none;
 }
 .content-container #toolbar #size-controls .brush-btn.active {
@@ -155,7 +142,7 @@ figure img.painting {
   width: 80%;
 }
 .content-container #toolbar #size-controls .brush-btn span {
-  background-color: #000;
+  background-color: #2B2B2B;
   border-radius: 100px;
   aspect-ratio: 1/1;
 }
@@ -194,4 +181,52 @@ figure img.painting {
       -ms-flex-align: center;
           align-items: center;
   gap: 10px;
+}
+
+.bg-triangle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: -1;
+}
+
+.content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 50px;
+  height: 100vh;
+  padding: 0 50px;
+}
+.content .image-col {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+@font-face {
+  font-family: "bahnschrift";
+  src: url("fonts/bahnschrift_1-webfont.woff2") format("woff2"), url("fonts/bahnschrift_1-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background-color: #bbd2e6;
+  color: #2B2B2B;
+}
+
+.container {
+  height: 100vh;
+}
+
+.btn {
+  border-radius: 0;
 }

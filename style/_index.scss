@@ -1,0 +1,21 @@
+.bg-triangle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: -1;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    height: 100vh;
+    padding: 0 50px;
+
+    .image-col {
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+    }
+}
