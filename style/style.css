@@ -5,8 +5,8 @@
 }
 
 body {
-  background-color: #002647;
-  color: #fff;
+  background-color: #bbd2e6;
+  color: #ffffff;
 }
 
 figure {
@@ -27,7 +27,7 @@ figure img {
   -o-object-fit: contain;
      object-fit: contain;
   padding: 15px;
-  background-color: #fff;
+  background-color: #ffffff;
 }
 figure img.painting {
   background: none;
@@ -54,7 +54,7 @@ figure img.painting {
 .content-container #canvas {
   height: 100%;
   aspect-ratio: 8/10;
-  background-color: #fff;
+  background-color: #ffffff;
   position: relative;
 }
 .content-container .canvas-container {
@@ -91,7 +91,7 @@ figure img.painting {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 10px;
-  background-color: #1e69ab;
+  background-color: #1E69AB;
   padding: 30px;
 }
 .content-container #toolbar {
@@ -103,7 +103,7 @@ figure img.painting {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 10px;
-  background-color: #1e69ab;
+  background-color: #1E69AB;
   padding: 30px;
   -webkit-box-flex: 1;
       -ms-flex: 1;
@@ -145,7 +145,7 @@ figure img.painting {
   height: 50px;
   width: 50px;
   padding: 0;
-  background-color: #fff;
+  background-color: #ffffff;
   border: none;
 }
 .content-container #toolbar #size-controls .brush-btn.active {

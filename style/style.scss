@@ -1,11 +1,13 @@
+@import 'vars.scss';
+
 /* The hidden iframe used for clean printing — do not remove */
 #print-frame {
     display: none;
 }
 
 body {
-    background-color: #002647;
-    color: #fff;
+    background-color: $bg-color;
+    color: $white;
 }
 
 figure {
@@ -19,7 +21,7 @@ figure {
         height: 250px;
         object-fit: contain;
         padding: 15px;
-        background-color: #fff;
+        background-color: $white;
 
         &.painting {
             background: none;
@@ -44,7 +46,7 @@ figure {
     #canvas {
         height: 100%;
         aspect-ratio: 8 / 10;
-        background-color: #fff;
+        background-color: $white;
         position: relative;
     }
 
@@ -74,7 +76,7 @@ figure {
             display: flex;
             flex-direction: column;
             gap: 10px;
-            background-color: #1e69ab;
+            background-color: $secondary-color;
             padding: 30px;
         }
     }
@@ -83,7 +85,7 @@ figure {
         display: flex;
         flex-direction: column;
         gap: 10px;
-        background-color: #1e69ab;
+        background-color: $secondary-color;
         padding: 30px;
         flex: 1;
         height: max-content;
@@ -116,7 +118,7 @@ figure {
                 height: 50px;
                 width: 50px;
                 padding: 0;
-                background-color: #fff;
+                background-color: $white;
                 border: none;
 
                 &.active {

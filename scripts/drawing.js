@@ -1,11 +1,11 @@
 const PAINTINGS_URLS = [
-  { Url: 'A-german-flare-goes-up.png', Title: 'A german flare goes up', Painter: 'Alex Colville'},
-  { Url: 'Anti-airgun-near-nijmegen-bridge.png', Title: 'Anti airgun near nijmegen bridge', Painter: 'Alex Colville'},
-  { Url: 'Landing-craft-assault.png', Title: 'Landing craft assault off Southern France', Painter: 'Alex Colville'},
-  { Url: 'The-nijmegen-bridge.png', Title: 'The Nijmegen bridge, Holland', Painter: 'Alex Colville'},
-  { Url: 'Armoured-cars-in-Nijmegen.png', Title: 'Armoured cars in Nijmegen', Painter: 'Alex Colville'},
-  { Url: 'Infantry-near-nijmegen-holland.png', Title: 'Infantry, near Nijmegen, Holland', Painter: 'Alex Colville'},
-  { Url: 'Canteen.png', Title: 'Canteen, Nijmegen, Hollland', Painter: 'Molly Lamb Bobak'},
+  { Url: 'A-german-flare-goes-up.png', Title: 'A german flare goes up', Painter: 'Alex'},
+  { Url: 'Anti-airgun-near-nijmegen-bridge.png', Title: 'Anti airgun near nijmegen bridge', Painter: 'Alex'},
+  { Url: 'Landing-craft-assault.png', Title: 'Landing craft assault off Southern France', Painter: 'Alex'},
+  { Url: 'The-nijmegen-bridge.png', Title: 'The Nijmegen bridge, Holland', Painter: 'Alex'},
+  { Url: 'Armoured-cars-in-Nijmegen.png', Title: 'Armoured cars in Nijmegen', Painter: 'Alex'},
+  { Url: 'Infantry-near-nijmegen-holland.png', Title: 'Infantry, near Nijmegen, Holland', Painter: 'Alex'},
+  { Url: 'Canteen.png', Title: 'Canteen, Nijmegen, Hollland', Painter: 'Molly'},
 ];
 
 const BRUSH_SIZES = [
@@ -42,9 +42,7 @@ const BRUSH_PROPERTIES = [
 
 const SVG_CODE = '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 512 511"><path fill="#6997b2" d="m340.536 13.875 157.207 157.897-228.389 227.39-157.206-157.898z"/><path fill="#fff" d="m94.706 257.615 157.672 158.364-82.166 81.807L12.54 339.421z"/><path fill="#000" fill-rule="evenodd" d="M305.256 14.567c19.569-19.483 51.227-19.414 70.711.155L497.053 136.34l.452.461c19.028 19.602 18.809 50.918-.608 70.25L206.364 496.314l-.462.452c-19.447 18.879-50.426 18.811-69.791-.152l-.458-.455L14.567 374.541c-19.483-19.569-19.414-51.227.155-70.71zM32.361 321.547c-9.784 9.741-9.82 25.571-.078 35.355L153.37 478.52c9.742 9.784 25.57 9.819 35.355.077l62.804-62.531L94.822 259.358zM358.25 32.361c-9.742-9.784-25.571-9.82-35.355-.078L112.538 241.719l156.708 156.708 210.013-209.093c9.784-9.742 9.818-25.57.077-35.355z" clip-rule="evenodd"/></svg>';
 
-/* ================================================================
-   CANVAS SETUP
-================================================================ */
+/**** CANVAS SETUP ****/
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -84,9 +82,7 @@ function applyBrushState() {
   });
 }
 
-/* ================================================================
-   TOOLBAR RENDERING
-================================================================ */
+/**** TOOLBAR RENDERING ****/
 function renderSizeControls() {
   const container = document.getElementById('size-controls');
   BRUSH_SIZES.forEach(s => {
@@ -195,9 +191,7 @@ function highlightActive(container, activeBtn) {
   if (activeBtn) activeBtn.classList.add("active");
 }
 
-/* ================================================================
-   DRAWING LOGIC
-================================================================ */
+/**** DRAWING LOGIC ****/
 let isDrawing = false;
 
 canvas.addEventListener('mousedown', e => {
@@ -240,9 +234,7 @@ function getPos(e) {
   return { x: e.clientX - rect.left, y: e.clientY - rect.top };
 }
 
-/* ================================================================
-   ACTION BUTTONS
-================================================================ */
+/**** ACTION BUTTONS ****/
 document.getElementById('btn-clear').addEventListener('click', () => {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 });
@@ -286,9 +278,7 @@ document.querySelector("#btn-painting").addEventListener('click', () => {
   document.querySelector("#painting").classList.add("painting");
 });
 
-/* ================================================================
-   INIT
-================================================================ */
+/**** INIT ****/
 renderSizeControls();
 renderColorControls();
 renderExtraControls();
