@@ -18,7 +18,7 @@ const BRUSH_SIZES = [
 
 const BRUSH_COLORS = [
   { label: 'Black', value: '#000000' },
-  { label: 'White', value: '#ffffff' },
+  { label: 'White', value: '#ffffff' },!
   { label: 'Red', value: '#e74c3c' },
   { label: 'Orange', value: '#e67e22' },
   { label: 'Yellow', value: '#f1c40f' },

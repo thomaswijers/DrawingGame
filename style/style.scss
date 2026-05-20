@@ -1,18 +1,28 @@
 @use "drawing.scss";
 @use "index.scss";
+@use "select.scss";
 @use "vars.scss";
 
 @font-face {
     font-family: 'bahnschrift';
-    src: url('fonts/bahnschrift_1-webfont.woff2') format('woff2'),
-         url('fonts/bahnschrift_1-webfont.woff') format('woff');
+    src: url('../fonts/bahnschrift_1-webfont.woff2') format('woff2'),
+         url('../fonts/bahnschrift_1-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+}
+
+h2 {
+  font-weight: bold;
+}
+
+p {
+  font-weight: bold;
 }
 
 body {
   background-color: vars.$bg-color;
   color: vars.$black;
+  font-family: 'bahnschrift';
 }
 
 .container {
@@ -21,4 +31,23 @@ body {
 
 .btn {
   border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  &-primary,
+  &-primary:hover,
+  &-primary:focus {
+    background-color: vars.$secondary-color;
+    border-color: vars.$secondary-color;
+  }
+}
+
+.bg-triangle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: -1;
 }

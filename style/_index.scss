@@ -1,11 +1,3 @@
-.bg-triangle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    z-index: -1;
-}
-
 .content {
     display: flex;
     align-items: center;
@@ -17,5 +9,9 @@
         height: 100%;
         display: flex;
         align-items: flex-end;
+    }
+
+    .btn-primary {
+        border-radius: 5px;
     }
 }
