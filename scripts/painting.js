@@ -47,7 +47,7 @@ const elements = {
 
 const ctx = elements.canvas.getContext('2d');
 
-const brush = {
+let brush = {
   color: brushColors[0],
   size: BRUSH_SIZES[2].value,
   isEraser: false,
@@ -391,6 +391,7 @@ function setColorPallete() {
     const painting = data.find(p => p.paintingID === idToFind);
 
     brushColors = painting.colors.length > 0 ? painting.colors : brushColors;
+    brush.color = painting.colors[0];
     renderColorControls();
     console.log(painting);
     console.log(brushColors);

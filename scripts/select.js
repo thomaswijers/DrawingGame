@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    fetch('../data/Paintings.json')
+    fetch('data/Paintings.json')
         .then(response => response.json())
         .then(data => PlacePaintings(data))
         .catch(error => console.error('Error fetching JSON:', error));
