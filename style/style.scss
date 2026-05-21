@@ -1,22 +1,25 @@
-@use "drawing.scss";
+@use "vars.scss";
+@use "painting.scss";
 @use "index.scss";
 @use "select.scss";
-@use "vars.scss";
+@use "confirm.scss";
 
 @font-face {
-    font-family: 'bahnschrift';
-    src: url('../fonts/bahnschrift_1-webfont.woff2') format('woff2'),
-         url('../fonts/bahnschrift_1-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'bahnschrift';
+  src: url('../fonts/bahnschrift_1-webfont.woff2') format('woff2'),
+    url('../fonts/bahnschrift_1-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 h2 {
   font-weight: bold;
+  font-size: 32px;
 }
 
 p {
   font-weight: bold;
+  font-size: 24px;
 }
 
 body {
@@ -30,24 +33,70 @@ body {
 }
 
 .btn {
-  border-radius: 0;
+  border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  font-size: 24px;
+  border-width: 3px;
+  line-height: 28px;
 
   &-primary,
   &-primary:hover,
   &-primary:focus {
     background-color: vars.$secondary-color;
     border-color: vars.$secondary-color;
+
+    &.btn-outline,
+    &.btn-outline:hover,
+    &.btn-outline:focus {
+      background: none;
+      color: vars.$secondary-color;
+    }
+  }
+
+  &-danger.btn-outline {
+    color: vars.$red;
+    border-color: vars.$red;
+    background: none;
+  }
+
+  &-danger.btn-outline:hover,
+  &-danger.btn-outline:focus,
+  &-danger.btn-outline:focus-within,
+  &-danger.btn-outline:focus-visible {
+    color: vars.$red-darker;
+    border-color: vars.$red-darker;
+    background: none;
+  }
+  
+  &-success.btn-outline {
+    color: vars.$green;
+    border-color: vars.$green;
+    background: none;
+  }
+
+  &-success.btn-outline:hover,
+  &-success.btn-outline:focus,
+  &-success.btn-outline:focus-within,
+  &-success.btn-outline:focus-visible {
+    color: vars.$green-darker;
+    border-color: vars.$green-darker;
+    background: none;
   }
 }
 
 .bg-triangle {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: -1;
+}
+
+.btn-container {
+  display: flex;
+  gap: 30px;
+  width: 100%;
 }

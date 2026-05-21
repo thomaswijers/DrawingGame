@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="style/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/fad29d7515.js" crossorigin="anonymous"></script>
+    <script src="scripts/select.js" crossorigin="anonymous"></script>
     <title>Drawing Canvas</title>
 </head>
+
 <body>
     <img class="bg-triangle" src="images/bg-triangle.svg" alt="bg-triangle" />
+    <section class="select-content">
+        <div class="button-col">
+            <a href="index.html" class="btn back-btn">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Terug</span>
+            </a>
+        </div>
+        <article class="select-col">
+            <h2>Kies een schilderij</h2>
+            <div id="painting-grid" class="painting-grid">
+                <div id="0" class="single-painting random">
+                    <i class="fa-solid fa-dice"></i>
+                    <span>Willekeurig</span>
+                </div>
+            </div>
+        </article>
+    </section>
 </body>
+
 </html>

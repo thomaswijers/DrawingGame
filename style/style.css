@@ -4,34 +4,19 @@
   display: none;
 }
 
-figure {
-  max-width: 100%;
+.content-container {
   display: flex;
+  gap: 30px;
+  height: 100vh;
+  padding-left: 30px;
   justify-content: center;
   align-items: center;
-}
-figure img {
-  max-width: 340px;
-  height: 250px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  padding: 15px;
-  background-color: #ededed;
-}
-figure img.painting {
-  background: none;
-  padding: 0;
-}
-
-.content-container {
-  height: 90vh;
-  flex: 1;
-  justify-content: center;
+  overflow: hidden;
 }
 .content-container #canvas {
-  height: 100%;
-  aspect-ratio: 8/10;
-  background-color: #ffffff;
+  width: 800px;
+  height: 533px;
+  background-color: #fff;
   position: relative;
 }
 .content-container .canvas-container {
@@ -52,44 +37,67 @@ figure img.painting {
 .content-container .toolbar-box {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  flex: 1;
+  gap: 15px;
+  height: 100%;
+  background-color: #002647;
+  padding: 15px;
 }
 .content-container .toolbar-box .painting-box {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: #1E69AB;
-  padding: 30px;
 }
-.content-container #toolbar {
+.content-container .toolbar-box .painting-box figure {
+  max-width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+}
+.content-container .toolbar-box .painting-box figure img {
+  max-width: 100%;
+  height: 250px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  padding: 15px;
+  background-color: #ededed;
+}
+.content-container .toolbar-box .painting-box figure img.painting {
+  background: none;
+  padding: 0;
+  max-width: 100%;
+  height: -moz-max-content;
+  height: max-content;
+  max-height: 290px;
+}
+.content-container .toolbar-box #toolbar {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  background-color: #1E69AB;
-  padding: 30px;
+  gap: 15px;
   flex: 1;
   height: -moz-max-content;
   height: max-content;
 }
-.content-container #toolbar .active-colors #active-color {
-  width: 60px;
-  height: 60px;
-  background-color: #000;
-}
-.content-container #toolbar .brush-colors {
+.content-container .toolbar-box #toolbar .brush-colors {
   display: grid;
-  grid-template-columns: repeat(4, 60px);
+  grid-template-columns: repeat(5, 1fr);
+  gap: 5px;
 }
-.content-container #toolbar .brush-colors .brush-color-btn {
-  width: 60px;
+.content-container .toolbar-box #toolbar .brush-colors .brush-color-btn {
+  border-radius: 0;
   aspect-ratio: 1/1;
   border: none !important;
 }
-.content-container #toolbar #size-controls {
+.content-container .toolbar-box #toolbar .brush-colors .brush-color-btn.active {
+  outline: solid 4px #1E69AB;
+  outline-offset: -4px;
+}
+.content-container .toolbar-box #toolbar #size-controls {
   display: flex;
   gap: 8px;
 }
-.content-container #toolbar #size-controls .brush-btn {
+.content-container .toolbar-box #toolbar #size-controls .brush-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,44 +107,74 @@ figure img.painting {
   background-color: #ededed;
   border: none;
 }
-.content-container #toolbar #size-controls .brush-btn.active {
+.content-container .toolbar-box #toolbar #size-controls .brush-btn.active {
   outline: 3px solid #157347;
 }
-.content-container #toolbar #size-controls .brush-btn.eraser-btn svg {
+.content-container .toolbar-box #toolbar #size-controls .brush-btn.eraser-btn svg {
   width: 80%;
 }
-.content-container #toolbar #size-controls .brush-btn span {
+.content-container .toolbar-box #toolbar #size-controls .brush-btn.btn-clear i {
+  color: #bb2d3b;
+  font-size: 28px;
+}
+.content-container .toolbar-box #toolbar #size-controls .brush-btn span {
   background-color: #2B2B2B;
   border-radius: 100px;
   aspect-ratio: 1/1;
 }
-.content-container #toolbar #size-controls .brush-btn.size-XS span {
+.content-container .toolbar-box #toolbar #size-controls .brush-btn.size-XS span {
   width: 3px;
 }
-.content-container #toolbar #size-controls .brush-btn.size-S span {
+.content-container .toolbar-box #toolbar #size-controls .brush-btn.size-S span {
   width: 9px;
 }
-.content-container #toolbar #size-controls .brush-btn.size-M span {
+.content-container .toolbar-box #toolbar #size-controls .brush-btn.size-M span {
   width: 15px;
 }
-.content-container #toolbar #size-controls .brush-btn.size-L span {
+.content-container .toolbar-box #toolbar #size-controls .brush-btn.size-L span {
   width: 30px;
 }
-.content-container #toolbar #size-controls .brush-btn.size-XL span {
+.content-container .toolbar-box #toolbar #size-controls .brush-btn.size-XL span {
   width: 40px;
 }
-.content-container #toolbar #extra-controls .extra-property {
+.content-container .toolbar-box #toolbar #extra-controls .extra-property {
   display: flex;
   align-items: center;
   gap: 10px;
 }
-.content-container #toolbar #extra-controls .extra-property label {
+.content-container .toolbar-box #toolbar #extra-controls .extra-property label {
   white-space: no-wrap;
 }
-.content-container #toolbar #action-controls {
+.content-container .toolbar-box #toolbar #action-controls {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.content-container .toolbar-box #toolbar #action-controls #btn-print {
+  padding: 5px 25px;
+}
+.content-container .toolbar-box #toolbar .timer {
+  display: flex;
+  gap: 5px;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 3px 5px;
+  border-radius: 3px;
+  background-color: #ededed;
+}
+.content-container .toolbar-box #toolbar .timer i {
+  font-size: 25px;
+  color: #002647;
+}
+.content-container .toolbar-box #toolbar .timer span {
+  display: flex;
+  width: 46px;
+  color: #1E69AB;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  transform: translateY(1.5px);
 }
 
 .content {
@@ -155,6 +193,128 @@ figure img.painting {
   border-radius: 5px;
 }
 
+.select-content {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  height: 100vh;
+  padding-right: 50px;
+}
+.select-content .button-col {
+  display: flex;
+  align-items: flex-end;
+  height: 100vh;
+  padding: 15px;
+}
+.select-content .button-col .back-btn {
+  color: #ededed;
+}
+.select-content .button-col .back-btn i {
+  transition: transform ease-in-out 0.2s;
+}
+.select-content .button-col .back-btn:focus, .select-content .button-col .back-btn:focus-within, .select-content .button-col .back-btn:focus-visible, .select-content .button-col .back-btn:hover {
+  color: #ededed;
+}
+.select-content .button-col .back-btn:focus i, .select-content .button-col .back-btn:focus-within i, .select-content .button-col .back-btn:focus-visible i, .select-content .button-col .back-btn:hover i {
+  transform: translateX(-5px);
+}
+.select-content .select-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100vh;
+  width: 100%;
+  padding: 50px 0;
+}
+.select-content .select-col .painting-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+}
+.select-content .select-col .painting-grid .single-painting {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 180px;
+  color: #ededed;
+}
+.select-content .select-col .painting-grid .single-painting.random {
+  padding: 30px;
+  gap: 10px;
+  background-color: #1E69AB;
+}
+.select-content .select-col .painting-grid .single-painting.random i {
+  font-size: 64px;
+}
+.select-content .select-col .painting-grid .single-painting.random span {
+  font-size: 32px;
+}
+.select-content .select-col .painting-grid .single-painting img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.select-col {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start;
+  height: 100vh;
+  width: 100%;
+  padding: 50px 0;
+  position: relative;
+}
+.select-col .absolute-col {
+  position: absolute;
+}
+.select-col > div {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: flex-start;
+  height: 100vh;
+  width: 100%;
+}
+.select-col > div:has(.text) {
+  gap: 15px;
+  justify-content: center;
+}
+.select-col > div.hidden {
+  display: none;
+}
+.select-col > div h2 {
+  margin: 0;
+  width: 100%;
+}
+.select-col > div .selected-painting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+.select-col > div .selected-painting img {
+  width: -moz-max-content;
+  width: max-content;
+  height: 450px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.select-col > div .text {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.select-col > div .text p {
+  margin: 0;
+}
+
 @font-face {
   font-family: "bahnschrift";
   src: url("../fonts/bahnschrift_1-webfont.woff2") format("woff2"), url("../fonts/bahnschrift_1-webfont.woff") format("woff");
@@ -163,10 +323,12 @@ figure img.painting {
 }
 h2 {
   font-weight: bold;
+  font-size: 32px;
 }
 
 p {
   font-weight: bold;
+  font-size: 24px;
 }
 
 body {
@@ -180,15 +342,42 @@ body {
 }
 
 .btn {
-  border-radius: 0;
+  border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  font-size: 24px;
+  border-width: 3px;
+  line-height: 28px;
 }
 .btn-primary, .btn-primary:hover, .btn-primary:focus {
   background-color: #1E69AB;
   border-color: #1E69AB;
+}
+.btn-primary.btn-outline, .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary:hover.btn-outline, .btn-primary:hover.btn-outline:hover, .btn-primary:hover.btn-outline:focus, .btn-primary:focus.btn-outline, .btn-primary:focus.btn-outline:hover, .btn-primary:focus.btn-outline:focus {
+  background: none;
+  color: #1E69AB;
+}
+.btn-danger.btn-outline {
+  color: #dc3545;
+  border-color: #dc3545;
+  background: none;
+}
+.btn-danger.btn-outline:hover, .btn-danger.btn-outline:focus, .btn-danger.btn-outline:focus-within, .btn-danger.btn-outline:focus-visible {
+  color: #bb2d3b;
+  border-color: #bb2d3b;
+  background: none;
+}
+.btn-success.btn-outline {
+  color: #198754;
+  border-color: #198754;
+  background: none;
+}
+.btn-success.btn-outline:hover, .btn-success.btn-outline:focus, .btn-success.btn-outline:focus-within, .btn-success.btn-outline:focus-visible {
+  color: #157347;
+  border-color: #157347;
+  background: none;
 }
 
 .bg-triangle {
@@ -197,4 +386,10 @@ body {
   left: 0;
   height: 100vh;
   z-index: -1;
+}
+
+.btn-container {
+  display: flex;
+  gap: 30px;
+  width: 100%;
 }

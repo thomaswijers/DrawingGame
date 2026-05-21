@@ -1,0 +1,63 @@
+@use 'vars.scss';
+
+.select-col {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-start;
+    height: 100vh;
+    width: 100%;
+    padding: 50px 0;
+    position: relative;
+
+    .absolute-col {
+        position: absolute;
+    }
+
+    >div {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        align-items: flex-start;
+        height: 100vh;
+        width: 100%;
+
+        &:has(.text) {
+            gap: 15px;
+            justify-content: center;
+        }
+
+        &.hidden {
+            display: none;
+        }
+
+        h2 {
+            margin: 0;
+            width: 100%;
+        }
+
+        .selected-painting {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+
+            img {
+                width: max-content;
+                height: 450px;
+                object-fit: contain;
+            }
+        }
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+}
