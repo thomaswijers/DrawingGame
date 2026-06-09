@@ -5,12 +5,18 @@
 }
 
 .content-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 30px;
   height: 100vh;
   padding-left: 30px;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   overflow: hidden;
 }
 .content-container #canvas {
@@ -19,7 +25,18 @@
   background-color: #fff;
   position: relative;
 }
+.content-container #canvas.portrait {
+  width: 453px;
+  height: 680px;
+}
 .content-container .canvas-container {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   position: relative;
 }
 .content-container .canvas-container::before {
@@ -35,24 +52,43 @@
   pointer-events: none;
 }
 .content-container .toolbar-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   gap: 15px;
   height: 100%;
   background-color: #002647;
   padding: 15px;
+  max-width: 428px;
 }
 .content-container .toolbar-box .painting-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 10px;
 }
 .content-container .toolbar-box .painting-box figure {
   max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0;
 }
 .content-container .toolbar-box .painting-box figure img {
@@ -67,15 +103,24 @@
   background: none;
   padding: 0;
   max-width: 100%;
+  height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
   max-height: 290px;
 }
 .content-container .toolbar-box #toolbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 15px;
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
 }
@@ -94,13 +139,21 @@
   outline-offset: -4px;
 }
 .content-container .toolbar-box #toolbar #size-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 8px;
 }
 .content-container .toolbar-box #toolbar #size-controls .brush-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 50px;
   width: 50px;
   padding: 0;
@@ -138,24 +191,35 @@
   width: 40px;
 }
 .content-container .toolbar-box #toolbar #extra-controls .extra-property {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 10px;
 }
 .content-container .toolbar-box #toolbar #extra-controls .extra-property label {
   white-space: no-wrap;
 }
 .content-container .toolbar-box #toolbar #action-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 10px;
 }
 .content-container .toolbar-box #toolbar #action-controls #btn-print {
   padding: 5px 25px;
 }
 .content-container .toolbar-box #toolbar .timer {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 5px;
+  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   padding: 3px 5px;
@@ -167,6 +231,8 @@
   color: #002647;
 }
 .content-container .toolbar-box #toolbar .timer span {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   width: 46px;
   color: #1E69AB;
@@ -174,35 +240,52 @@
   font-style: normal;
   font-weight: 700;
   line-height: 24px;
-  transform: translateY(1.5px);
+  -webkit-transform: translateY(1.5px);
+          transform: translateY(1.5px);
 }
 
 .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 50px;
   height: 100vh;
   padding: 0 50px;
 }
 .content .image-col {
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 .content .btn-primary {
   border-radius: 5px;
 }
 
 .select-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 50px;
   height: 100vh;
   padding-right: 50px;
 }
 .select-content .button-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   height: 100vh;
   padding: 15px;
 }
@@ -210,18 +293,29 @@
   color: #ededed;
 }
 .select-content .button-col .back-btn i {
+  -webkit-transition: -webkit-transform ease-in-out 0.2s;
+  transition: -webkit-transform ease-in-out 0.2s;
   transition: transform ease-in-out 0.2s;
+  transition: transform ease-in-out 0.2s, -webkit-transform ease-in-out 0.2s;
 }
 .select-content .button-col .back-btn:focus, .select-content .button-col .back-btn:focus-within, .select-content .button-col .back-btn:focus-visible, .select-content .button-col .back-btn:hover {
   color: #ededed;
 }
 .select-content .button-col .back-btn:focus i, .select-content .button-col .back-btn:focus-within i, .select-content .button-col .back-btn:focus-visible i, .select-content .button-col .back-btn:hover i {
-  transform: translateX(-5px);
+  -webkit-transform: translateX(-5px);
+          transform: translateX(-5px);
 }
 .select-content .select-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   height: 100vh;
   width: 100%;
   padding: 50px 0;
@@ -235,11 +329,20 @@
   overflow-y: auto;
 }
 .select-content .select-col .painting-grid .single-painting {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 180px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 240px;
   color: #ededed;
 }
 .select-content .select-col .painting-grid .single-painting.random {
@@ -261,10 +364,17 @@
 }
 
 .select-col {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 30px;
-  align-items: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   height: 100vh;
   width: 100%;
   padding: 50px 0;
@@ -274,16 +384,25 @@
   position: absolute;
 }
 .select-col > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 30px;
-  align-items: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   height: 100vh;
   width: 100%;
 }
 .select-col > div:has(.text) {
   gap: 15px;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .select-col > div.hidden {
   display: none;
@@ -293,13 +412,21 @@
   width: 100%;
 }
 .select-col > div .selected-painting {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   gap: 15px;
   width: 100%;
 }
 .select-col > div .selected-painting img {
+  width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
   height: 450px;
@@ -307,8 +434,13 @@
      object-fit: contain;
 }
 .select-col > div .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   gap: 5px;
 }
 .select-col > div .text p {
@@ -343,9 +475,15 @@ body {
 
 .btn {
   border-radius: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   gap: 10px;
   font-size: 24px;
   border-width: 3px;
@@ -389,6 +527,8 @@ body {
 }
 
 .btn-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 30px;
   width: 100%;

@@ -59,6 +59,10 @@ const drawingState = {
   lastY: 0,
 };
 
+const paintingState = {
+  orientation: 'landscape',
+};
+
 const brushColorCache = new Map();
 
 let timerInterval = null;
@@ -67,7 +71,6 @@ function initialize() {
   renderSizeControls();
   renderColorControls();
   bindEvents();
-  resizeCanvas();
   setChosenPainting();
   setColorPallete();
   startTimer(120);
@@ -79,7 +82,7 @@ function bindEvents() {
   bindPointerEvents();
 
   elements.finishButton.addEventListener('click', endDrawingGame);
-  elements.printButton.addEventListener('click', printDrawing);
+  elements.printButton.addEventListener('click', () => printDrawing(paintingState.orientation));
 }
 
 function bindPointerEvents() {
@@ -113,7 +116,6 @@ function bindPointerEvents() {
   elements.canvas.addEventListener('pointerup', stopDrawing);
   elements.canvas.addEventListener('pointerleave', stopDrawing);
 
-  // Prevent scrolling while drawing on touch devices
   elements.canvas.style.touchAction = 'none';
 }
 
@@ -122,8 +124,13 @@ function resizeCanvas() {
 
   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 
-  canvas.width = canvas.offsetWidth;
-  canvas.height = canvas.offsetHeight;
+  if (paintingState.orientation === 'portrait') {
+    canvas.width = canvas.offsetHeight;
+    canvas.height = canvas.offsetWidth;
+  } else {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  }
 
   ctx.putImageData(imageData, 0, 0);
   applyBrushSettings();
@@ -219,9 +226,12 @@ function getPointerPosition(event) {
   const pointer = event.touches?.[0] || event;
   const rect = elements.canvas.getBoundingClientRect();
 
+  const scaleX = elements.canvas.width / rect.width;
+  const scaleY = elements.canvas.height / rect.height;
+
   return {
-    x: pointer.clientX - rect.left,
-    y: pointer.clientY - rect.top,
+    x: (pointer.clientX - rect.left) * scaleX,
+    y: (pointer.clientY - rect.top) * scaleY,
   };
 }
 
@@ -255,51 +265,60 @@ function paintStroke(currentX, currentY) {
   const deltaY = currentY - lastY;
   const distance = Math.hypot(deltaX, deltaY);
 
-  if (distance === 0) {
-    return;
-  }
+  if (distance === 0) return;
+
+  const { r, g, b } = hexToRgb(brush.color);
 
   const perpendicularX = -deltaY / distance;
   const perpendicularY = deltaX / distance;
 
-  const { r, g, b } = hexToRgb(brush.color);
+  const bristleCount = Math.max(8, Math.floor(brush.size * 1.2));
+  const spread = brush.size * 0.8;
 
-  const bristleCount = Math.max(6, Math.floor(brush.size * 0.8));
-  const spread = brush.size;
+  // Number of interpolation steps along the stroke for smoothness
+  const steps = Math.max(1, Math.floor(distance / 2));
 
-  for (let index = 0; index < bristleCount; index += 1) {
-    const position = index / (bristleCount - 1) - 0.5;
+  for (let step = 0; step <= steps; step++) {
+    const t = step / steps;
+    const x = lastX + deltaX * t;
+    const y = lastY + deltaY * t;
 
-    const offsetDistance = position * spread;
+    for (let i = 0; i < bristleCount; i++) {
+      const position = i / (bristleCount - 1) - 0.5;
 
-    const offsetX = perpendicularX * offsetDistance;
-    const offsetY = perpendicularY * offsetDistance;
+      // Edge fade — bristles at the edge are more transparent
+      const edgeFade = 1 - Math.pow(Math.abs(position) * 2, 1.5) * 0.5;
 
-    const wobble = (Math.random() - 0.5) * 1.2;
+      // Taper at start and end of stroke
+      const taper = Math.sin(t * Math.PI) * 0.4 + 0.6;
 
-    const wobbleX = perpendicularX * wobble;
-    const wobbleY = perpendicularY * wobble;
+      const opacity = (0.15 + Math.random() * 0.1) * edgeFade * taper;
 
-    const edgeFade = 1 - Math.pow(Math.abs(position) * 2, 2) * 0.35;
+      // Bristle offset with natural wobble
+      const wobble = (Math.random() - 0.5) * brush.size * 0.15;
+      const offsetDistance = position * spread + wobble;
 
-    const opacity = (0.75 + Math.random() * 0.25) * edgeFade;
+      const bx = x + perpendicularX * offsetDistance;
+      const by = y + perpendicularY * offsetDistance;
 
-    const width = Math.max(
-      0.8,
-      (1.2 + Math.random() * 0.8) * edgeFade,
-    );
+      const radius = Math.max(0.4, (0.6 + Math.random() * 0.8) * edgeFade);
 
-    ctx.beginPath();
-    ctx.moveTo(lastX + offsetX + wobbleX, lastY + offsetY + wobbleY);
-    ctx.lineTo(currentX + offsetX + wobbleX, currentY + offsetY + wobbleY);
-
-    ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
-    ctx.lineWidth = width;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-
-    ctx.stroke();
+      ctx.beginPath();
+      ctx.arc(bx, by, radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${opacity})`;
+      ctx.fill();
+    }
   }
+
+  // Subtle central body of the stroke for cohesion
+  ctx.beginPath();
+  ctx.moveTo(lastX, lastY);
+  ctx.lineTo(currentX, currentY);
+  ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, 0.08)`;
+  ctx.lineWidth = brush.size * 0.4;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  ctx.stroke();
 
   drawingState.lastX = currentX;
   drawingState.lastY = currentY;
@@ -377,10 +396,18 @@ function setChosenPainting() {
     let paintingID = Number(localStorage.getItem("selectedPainting"));
     const idToFind = paintingID == 0 || paintingID == undefined ? Math.floor(Math.random() * data.length) : paintingID;
     const painting = data.find(p => p.id === idToFind);
-    elements.paintingImage.src = painting.url
-    elements.paintingImage.classList.add("painting")
 
+    paintingState.orientation = painting.orientation || 'landscape';
+
+    elements.canvas.classList.remove('portrait', 'landscape');
+    elements.canvas.classList.add(paintingState.orientation);
+
+    elements.paintingImage.src = painting.url;
+    elements.paintingImage.classList.add("painting");
     elements.selectedPainting.append(`<img src="${painting.url}" alt="${painting.title}" />`);
+
+    // Wait for CSS to apply before reading offsetWidth/offsetHeight
+    setTimeout(() => resizeCanvas(), 0);
   });
 }
 
@@ -431,7 +458,7 @@ function endDrawingGame() {
 
   drawingState.isDrawing = false;
   elements.canvas.style.pointerEvents = 'none';
-  
+
   if (timerInterval == null) {
     const toastEl = document.getElementById("timesUp");
     new bootstrap.Toast(toastEl, {
@@ -439,6 +466,7 @@ function endDrawingGame() {
       delay: 3000
     }).show();
   }
+
   stopTimer();
   elements.postGameActions.classList.remove("d-none");
 }

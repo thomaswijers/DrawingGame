@@ -1,44 +1,233 @@
 [
   {
     "id": 1,
-    "url": "images/paintings/A-german-flare-goes-up.png",
+    "url": "images/paintings/flare.jpg",
     "title": "A german flare goes up",
-    "painter": "Alex"
+    "painter": "Alex",
+    "orientation": "landscape"
   },
   {
     "id": 2,
-    "url": "images/paintings/Anti-airgun-near-nijmegen-bridge.png",
+    "url": "images/paintings/antiaircraftgun.jpg",
     "title": "Anti airgun near nijmegen bridge",
-    "painter": "Alex"
+    "painter": "Alex",
+    "orientation": "landscape"
   },
   {
     "id": 3,
-    "url": "images/paintings/Landing-craft-assault.png",
+    "url": "images/paintings/landingcraft.jpg",
     "title": "Landing craft assault off Southern France",
-    "painter": "Alex"
+    "painter": "Alex",
+    "orientation": "portrait"
   },
   {
     "id": 4,
-    "url": "images/paintings/The-nijmegen-bridge.png",
+    "url": "images/paintings/nijmegenbridge.jpg",
     "title": "The Nijmegen bridge, Holland",
-    "painter": "Alex"
+    "painter": "Alex",
+    "orientation": "landscape"
   },
   {
     "id": 5,
-    "url": "images/paintings/Armoured-cars-in-Nijmegen.png",
+    "url": "images/paintings/armouredcars.jpg",
     "title": "Armoured cars in Nijmegen",
-    "painter": "Alex"
+    "painter": "Alex",
+    "orientation": "landscape"
   },
   {
     "id": 6,
-    "url": "images/paintings/Infantry-near-nijmegen-holland.png",
+    "url": "images/paintings/infantry.jpg",
     "title": "Infantry, near Nijmegen, Holland",
-    "painter": "Alex"
+    "painter": "Alex",
+    "orientation": "landscape"
   },
   {
     "id": 7,
-    "url": "images/paintings/Canteen.png",
+    "url": "images/paintings/canteen.jpg",
     "title": "Canteen, Nijmegen, Holland",
-    "painter": "Molly"
+    "painter": "Molly",
+    "orientation": "landscape"
+  },
+  {
+    "id": 8,
+    "url": "images/paintings/barrier.jpg",
+    "title": "Barrier",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 9,
+    "url": "images/paintings/bodies.jpg",
+    "title": "Bodies",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 10,
+    "url": "images/paintings/brokendam.jpg",
+    "title": "Broken dam",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 11,
+    "url": "images/paintings/deadcity.jpg",
+    "title": "Dead city",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 12,
+    "url": "images/paintings/deadparatrooper.jpg",
+    "title": "Dead paratrooper",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 13,
+    "url": "images/paintings/dugout.jpg",
+    "title": "Dugout",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 14,
+    "url": "images/paintings/exhaustedprisoners.jpg",
+    "title": "Exhausted prisoners",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 15,
+    "url": "images/paintings/floodedroad.jpg",
+    "title": "Flooded road",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 16,
+    "url": "images/paintings/hismajesty.jpg",
+    "title": "His majesty",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 17,
+    "url": "images/paintings/hourzero.jpg",
+    "title": "Hour zero",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 18,
+    "url": "images/paintings/infantryadvancing.jpg",
+    "title": "Infantry advancing",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 19,
+    "url": "images/paintings/laundry.jpg",
+    "title": "Laundry",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 20,
+    "url": "images/paintings/littereddugout.jpg",
+    "title": "Littered dugout",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 21,
+    "url": "images/paintings/machinegun.jpg",
+    "title": "Machine gun",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 22,
+    "url": "images/paintings/machinegunposition.jpg",
+    "title": "Machine gun position",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 23,
+    "url": "images/paintings/messerschmitt.jpg",
+    "title": "Messerschmitt",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 24,
+    "url": "images/paintings/parachutes.jpg",
+    "title": "Parachutes",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 25,
+    "url": "images/paintings/riverwaal.jpg",
+    "title": "River Waal",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 26,
+    "url": "images/paintings/roy.jpg",
+    "title": "Roy",
+    "painter": "Alex",
+    "orientation": "portrait"
+  },
+  {
+    "id": 27,
+    "url": "images/paintings/salient.jpg",
+    "title": "Salient",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 28,
+    "url": "images/paintings/selfpropelledgun.jpg",
+    "title": "Self propelled gun",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 29,
+    "url": "images/paintings/shatteredlandscape.jpg",
+    "title": "Shattered landscape",
+    "painter": "Alex",
+    "orientation": "portrait"
+  },
+  {
+    "id": 30,
+    "url": "images/paintings/tanks.jpg",
+    "title": "Tanks",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 31,
+    "url": "images/paintings/tragiclandscape.jpg",
+    "title": "Tragic landscape",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 32,
+    "url": "images/paintings/watchonthedyke.jpg",
+    "title": "Watch on the dyke",
+    "painter": "Alex",
+    "orientation": "landscape"
+  },
+  {
+    "id": 33,
+    "url": "images/paintings/wreckedtown.jpg",
+    "title": "Wrecked town",
+    "painter": "Alex",
+    "orientation": "portrait"
   }
 ]
