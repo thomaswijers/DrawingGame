@@ -43,6 +43,7 @@ const elements = {
   postGameActions: document.getElementById('post-game-actions'),
   toolbarBox: document.querySelector('.toolbar-box'),
   selectedPainting: $("#selected-painting"),
+  canvasContainer: document.querySelector('.canvas-container'),
 };
 
 const ctx = elements.canvas.getContext('2d');
@@ -469,6 +470,7 @@ function endDrawingGame() {
 
   stopTimer();
   elements.postGameActions.classList.remove("d-none");
+  elements.canvasContainer.classList.add("end-screen");
 }
 
 initialize();
