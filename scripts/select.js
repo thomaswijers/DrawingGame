@@ -16,13 +16,19 @@ function PlacePaintings(paintings) {
         `);
     });
 
-    AddPaintingClickEvent();
+    AddPaintingClickEvent(paintings.length);
 }
 
-function AddPaintingClickEvent() {
+function AddPaintingClickEvent(amountOfPaintings) {
     $(".single-painting").click(function () {
-        const id = $(this).attr("id");
-        localStorage.setItem("selectedPainting", id);
+        let id = $(this).attr("id");
+        if (id == 0) {
+            id = Math.floor(Math.random() * amountOfPaintings);
+            localStorage.setItem("selectedPainting", id);
+        }
+        else {
+            localStorage.setItem("selectedPainting", id);
+        } 
         window.location.href = "confirm.html";
     });
 }
